@@ -1,6 +1,5 @@
 # event_organizer_db
 #Event Organizer Database
-
 Repository ini berisi file SQL untuk struktur dan data awal sistem Event Organizer.
 
 #Deskripsi Database
@@ -26,12 +25,21 @@ sehingga bisnis penyelenggaraan event dapat berjalan dengan lebih tertata, efisi
 Database ini menggunakan 5 tabel utama dengan relasi antar-tabel berbasis ID unik berbentuk kombinasi huruf dan angka.
 
 #Struktur Tabel
-
 - users: menyimpan data admin/penyelenggara event.
 - events: menyimpan informasi event (judul, lokasi, waktu, dll).
 - tickets: menyimpan jenis dan harga tiket untuk setiap event.
 - attendees: menyimpan data peserta event.
 - orders: menyimpan data pemesanan tiket oleh peserta.
+
+
+#Relasi Antar Tabel & Kardinalitas
+
+|Tabel Sumber    | Tabel Tujuan   | Relasi      | Kardinalitas      			       |
+| `users`        | `events`       | One to Many | 1 user → banyak event          |
+| `events`       | `tickets`      | One to Many | 1 event → banyak tiket         |
+| `attendees`    | `orders`       | One to Many | 1 attendee → banyak order      |
+| `tickets`      | `orders`       | One to Many | 1 tiket → banyak order         |
+
 
 #Cara Import Database
 1. Buka phpMyAdmin
@@ -39,9 +47,9 @@ Database ini menggunakan 5 tabel utama dengan relasi antar-tabel berbasis ID uni
 3. Klik tab Import
 4. Pilih file `database.sql` yang sudah diunduh
 5. Klik Go
-
 Database akan otomatis terbuat dengan struktur dan data awalnya.
 
 #Identitas
 Nama: [Dewi Zulfa Nafisah]  
 NIM: [23.02.02.0021]
+
